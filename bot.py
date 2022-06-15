@@ -27,18 +27,23 @@ Bot = Client(
 
 db = Database()
 
-START_TEXT = """ `Hai {}, 
-Am a YouTube Downloader Bot I Can Download Songs,Videos and Lyrics From YouTube and lyrics and  Would upload into Telegram. 
-Use /help Commands For More.`
+START_TEXT = """ 𝙷𝚊𝚒 {}, 
+𝙸 𝙰𝚖 𝙼𝙷𝚈𝚃𝚍𝚕𝙱𝚘𝚃 𝚋𝚢 𝚌𝚛𝚎𝚊𝚝𝚎𝚍 𝚋𝚢 @MutyalaHarshith
+𝚄𝚜𝚎 /help 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 𝙵𝚘𝚛 𝙼𝚘𝚛𝚎
 """
 
 CMDS_TEXT = """
-`Here It is The List of Commamds and Its usage.`
+`Here It is The List of Commamds and Its usage Created By @MutyalaHarshith.`
 
-- /song - This Command is For Downloading Songs. 
+- /MHsong - This command to download the songs of the songs. 
 - /video - This Command is For Downloading Videos. 
 - Also You Can search videos via inline Mode on Bot. 
 
+`ఇక్కడ ఆదేశాల జాబితా మరియు దాని వినియోగం ఉంది నా సృష్టికర్త @MutyalaHarshith.`
+
+- /song - పాటల పాటలను డౌన్‌లోడ్ చేయడానికి ఈ ఆదేశం. 
+- /video - ఈ కమాండ్ వీడియోలను డౌన్‌లోడ్ చేయడం కోసం. 
+- అలాగే మీరు బాట్‌లో ఇన్‌లైన్ మోడ్ ద్వారా వీడియోలను శోధించవచ్చు ఎలాగంటే @MHYTDLBot. 
 """
 
 ABOUT_TEXT = """
@@ -53,25 +58,28 @@ ABOUT_TEXT = """
 """
 START_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Support📕', url=f"https://telegram.me/{Config.SUPPORT}"), 
-        InlineKeyboardButton(text="SEARCH🔎", switch_inline_query_current_chat="")
+        InlineKeyboardButton('🔍 search', switch_inline_query_current_chat=""), 
+        InlineKeyboardButton(text="🕵️Go Inline", switch_inline_query="")
         ],[
-        InlineKeyboardButton('HELP & USAGE⚙️', callback_data ='cmds') 
+        InlineKeyboardButton('MH Help 💕', callback_data ='cmds'), 
+        InlineKeyboardButton)'💞 Channel', url=f"https://t.me/MutyalaHarshith")
         ],[
-        InlineKeyboardButton('ABOUT📕', callback_data='about'),
-        InlineKeyboardButton('CLOSE🔐', callback_data='close')
+        InlineKeyboardButton('about 😄', callback_data='about'),
+        InlineKeyboardButton('Close 🤪', callback_data='close')
         ]]
     )
 CMDS_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('HOME🏡', callback_data='home'),
-        InlineKeyboardButton('CLOSE🔐', callback_data='close')
+        InlineKeyboardButton('😜 Home', callback_data='home'),
+        InlineKeyboardButton('Support📕', url=f"https://telegram.me/{Config.SUPPORT}"),
+        InlineKeyboardButton('🥳 Close', callback_data='close')
         ]]
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('HOME🏡', callback_data='home'),
-        InlineKeyboardButton('CLOSE🔐', callback_data='close')
+        InlineKeyboardButton('😜 Home', callback_data='home'),
+        InlineKeyboardButton('Support📕', url=f"https://telegram.me/{Config.SUPPORT}"),
+        InlineKeyboardButton('🥳 Close', callback_data='close')
         ]]
     )
 
@@ -147,7 +155,7 @@ async def send_msg(user_id, message):
         return 500, f"{user_id} : {traceback.format_exc()}\n"
 
 	
-@Bot.on_message(filters.command(['song']))
+@Bot.on_message(filters.command(['mhsong']))
 def a(client, message):
     query = ''
     for i in message.command[1:]:
@@ -177,28 +185,28 @@ def a(client, message):
             #     m.edit("Exceeded 30mins cap")
             #     return
 
-            performer = f"[@mwkBoTs]" 
+            performer = f"[@MutyalaHarshith]" 
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
 
         except Exception as e:
             print(e)
-            m.edit('**👎 Nothing found Retry with another !**')
+            m.edit('**👎 Nothing found Retry with another @MutyalaHarshith !**')
             return
     except Exception as e:
         m.edit(
-            "**Enter Song Name with /song Command!**"
+            "**Enter Song Name with /song Command! @MutyalaHarshith**"
         )
         print(str(e))
         return
-    m.edit("`Bruh... Uploading... Please Wait...`")
+    m.edit("`Bro/sis... Uploading... Please Wait... @MutyalaHarshith`")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'🎶 <b>Title:</b> <a href="{link}">{title}</a>\n⌚ <b>Duration:</b> <code>{duration}</code>\n📻 <b>Uploaded By:</b> <a href="https://t.me/mwklinks">MwK Song Bot</a>'
+        rep = f'🎶 <b>Title:</b> <a href="{link}">{title}</a>\n⌚ <b>Duration:</b> <code>{duration}</code>\n📻 <b>Uploaded By:</b> <a href="https://t.me/MutyalaHarshith">MutyalaHarshith</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -206,7 +214,7 @@ def a(client, message):
         message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name)
         m.delete()
     except Exception as e:
-        m.edit('**An internal Error Occured, Report This @redbullfed!!**')
+        m.edit('**An internal Error Occured, Report This @MHGcHaT!!**')
         print(e)
     try:
         os.remove(audio_file)
@@ -223,7 +231,7 @@ async def inline(client: Client, query: InlineQuery):
         await client.answer_inline_query(
             query.id,
             results=answers,
-            switch_pm_text="Search your query here...🔎",
+            switch_pm_text="Search your query here...🔎 @MutyalaHarshith",
             switch_pm_parameter="help",
             cache_time=0
         )
@@ -357,7 +365,7 @@ async def ytmusic(client, message: Message):
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"`Finding {urlissed} From Youtube Servers. Please Wait.\n\n Uploading Slowed down Due to Heavy Traffic.!`"
+        message.chat.id, f"`Finding {urlissed} From Youtube Servers. Please Wait.\n\n Uploading Slowed down Due to Heavy Traffic @MutyalaHarshith.!`"
     )
     if not urlissed:
         await pablo.edit("Invalid Command Syntax, Please Check Help Menu To Know More!")
@@ -394,7 +402,7 @@ async def ytmusic(client, message: Message):
 
             if duration > DURATION_LIMIT:
                 await pablo.edit(
-                    f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {duration} minute(s)"
+                    f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {duration} minute(s) @MutyalaHarshith"
                 )
                 is_downloading = False
                 return
@@ -420,7 +428,7 @@ async def ytmusic(client, message: Message):
         progress_args=(
             pablo,
             c_time,
-            f"`Uploading {urlissed} Song From YouTube Music!`",
+            f"`Uploading {urlissed} Song From YouTube Music! @MutyalaHarshith`",
             file_stark,
         ),
     )
