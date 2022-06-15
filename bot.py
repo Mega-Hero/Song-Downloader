@@ -36,26 +36,16 @@ CMDS_TEXT = """
 `Here It is The List of Commamds and Its usage.`
 
 - /song - This Command is For Downloading Songs. 
-- /lyrics - This Command is For Scrapping Lyrics of a Song. 
 - /video - This Command is For Downloading Videos. 
 - Also You Can search videos via inline Mode on Bot. 
 
-`Exmples For Both Those Commands.`
-
-- /song [song name] or [youTube link]. 
-  [/song Alone]. 
-- /lyrics [song name]. 
-  [/lyrics alone] 
-- /video [video name] or [YouTube link] 
-  [/video Alone] 
-  
 """
 
 ABOUT_TEXT = """
-- **Bot :** `Song Downloader`
-- **Creator :** [MR-JINN-OF-TG](https://Github.com/MR-JINN-OF-TG)
-- **Support :** [CLICK HERE](https://telegram.me/NAZRIYASUPPORT)
-- **Source :** [CLICK HERE](https://github.com/MR-JINN-OF-TG/Song-Downloader)
+- **Bot :** `[MHYtDl BoT](https://t.me/MHYTdlBoT)`
+- **Creator :** [Mutyala Harshith](https://t.me/MutyalaHarshith)
+- **Support :** [Support Group](https://telegram.me/MHGcHaT)
+- **Channel :** [Telugu RoBoTs](https://t.me/Telugu_robots)
 - **Language :** [Python3](https://python.org)
 - **Library :** [Pyrogram](https://pyrogram.org)
 - **Server :** [Heroku](https://heroku.com)
