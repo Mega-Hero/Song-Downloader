@@ -62,7 +62,6 @@ START_BUTTONS = InlineKeyboardMarkup(
         InlineKeyboardButton(text="🕵️Go Inline", switch_inline_query="")
         ],[
         InlineKeyboardButton('MH Help 💕', callback_data ='cmds'), 
-        InlineKeyboardButton)'💞 Channel', url=f"https://t.me/MutyalaHarshith")
         ],[
         InlineKeyboardButton('about 😄', callback_data='about'),
         InlineKeyboardButton('Close 🤪', callback_data='close')
